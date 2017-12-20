@@ -19,17 +19,16 @@ abc_egf file.lst
 | --------- | -------- |
 |  sac1     | SAC file1|
 |  sac2     | SAC file2|
-
-- [x] year: year of seismic event happening;
-- [x] mon: month of seismic event happening;
-- [x] day: day of seismic event happening;
-- [x] hour: hour of seismic event happening;
-- [x] min: minute of seismic event happening;
-- [x] sec: second of seismic event happening;
-- [x] start0: time of after seismic event happening;
-- [x] cut_npts: points number of cutting;
-- [x] cor_name: name of cross-correlation;
-- [x] lag_time: lag time of cross-correlation.
+|  year     | year of seismic event happening|
+|  mon | month of seismic event happening|
+|  day | day of seismic event happening|
+|  hour | hour of seismic event happening|
+|  min   | minute of seismic event happening|
+|  sec:   |second of seismic event happening|
+|  start0  | time of after seismic event happening|
+|  cut_npts | points number of cutting|
+|  cor_name | name of cross-correlation|
+|  lag_time | lag time of cross-correlation|
 ***
 
 ## Contribution
