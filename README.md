@@ -2,6 +2,17 @@
 - To extract empirical green's funcions from seismic ambient noise with seismic interferomatry.
 
 ***
+:one: ![raw](https://github.com/geophydog/ABC.git)
+
+:two: ![cut](https://github.com/geophydog/ABC/blob/master/images/cut.jpg)
+
+:three: ![bp](https://github.com/geophydog/ABC/blob/master/images/bp.jpg)
+
+:four: ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
+
+:five: ![cor]()
+
+***
 
 ## Denpendencies
 - Linux or Mac OS platform;
