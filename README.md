@@ -1,4 +1,4 @@
-## ABC: Ambient Noise Cross-correlation
+## ABC: AmBient noise Cross-correlation
 - To extract empirical green's funcions from seismic ambient noise with seismic interferomatry.
 
 ***
