@@ -13,11 +13,13 @@
 
 abc_egf file.lst
 
-- file.lst: sac1 sac2 year mon day hour min sec start0 cut_npts cor_name lag_time
+- file.lst: sac1 sac2 year mon day hour min sec start0 cut_npts cor_name lag_time  
+
 | parameter | meanling |
 | --------- | -------- |
 |  sac1     | SAC file1|
 |  sac2     | SAC file2|
+
 - [x] year: year of seismic event happening;
 - [x] mon: month of seismic event happening;
 - [x] day: day of seismic event happening;
