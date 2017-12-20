@@ -10,7 +10,7 @@
 ***
 
 ## Usage
-```
+
 abc_egf file.lst
 - file.lst: year mon day hour min sec start0 cut_npts cor_name lag_time
 - [x] year: year of seismic event happening;
