@@ -15,10 +15,13 @@
 ### :three: band-pass filtering
 ![bp](https://github.com/geophydog/ABC/blob/master/images/bp.jpg)
 
-### :four: spectral whitening
+### :four: normalization in time domain
+![norm](https://github.com/geophydog/ABC/blob/master/images/norm.png)
+
+### :five: spectral whitening
 ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
 
-### :five: cross-correlation
+### :six: cross-correlation
 ![cor](https://github.com/geophydog/ABC/blob/master/images/cor.jpg)
 
 ***
