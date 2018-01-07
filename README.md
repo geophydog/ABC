@@ -2,7 +2,7 @@
 
 ***
 
-## ABC: AmBient noise Cross-correlation
+## ABC: AmBient noise and Coda Cross-correlation
 - To extract empirical green's funcions from seismic ambient noise with seismic interferomatry.
 
 ***
