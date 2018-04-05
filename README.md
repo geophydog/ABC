@@ -1,4 +1,8 @@
-## ABC: AmBient noise Cross-correlation
+:hotel: [Return to Home Page](https://github.com/geophydog/geophydog.github.io/blob/master/README.md)
+
+***
+
+## ABC: AmBient noise and Coda Cross-correlation
 - To extract empirical green's funcions from seismic ambient noise with seismic interferomatry.
 
 ***
@@ -11,10 +15,13 @@
 ### :three: band-pass filtering
 ![bp](https://github.com/geophydog/ABC/blob/master/images/bp.jpg)
 
-### :four: spectral whitening
+### :four: normalization in time domain
+![norm](https://github.com/geophydog/ABC/blob/master/images/norm.png)
+
+### :five: spectral whitening
 ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
 
-### :five: cross-correlation
+### :six: cross-correlation
 ![cor](https://github.com/geophydog/ABC/blob/master/images/cor.jpg)
 
 ***

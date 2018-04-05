@@ -21,6 +21,10 @@
  *                                  - write_sac_xy                             *
  *                                  - sac_head_index                           *
  *      2016-03-01  Dongdong Tian   Add new function: issac                    *
+ *      2017-09-10  Xuping Feng     Add new functions: cor, norm, normal, bp   *
+ *                                                     pow_next2, whiten_f,    *
+ *                                                     julian, cut_sac,        *
+ *                                                     spe_whie, abs_time.     *
  *                                                                             *
  ******************************************************************************/
 
