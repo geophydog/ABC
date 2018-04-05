@@ -19,7 +19,8 @@
 ![norm](https://github.com/geophydog/ABC/blob/master/images/norm.png)
 
 ### :five: spectral whitening
-![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
+  - ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
+  - ![whi_fft](https://github.com/geophydog/ABC/blob/master/images/whi_fft.png)
 
 ### :six: cross-correlation
 ![cor](https://github.com/geophydog/ABC/blob/master/images/cor.jpg)
