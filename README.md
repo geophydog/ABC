@@ -6,21 +6,32 @@
 - To extract empirical green's funcions from seismic ambient noise with seismic interferomatry.
 
 ***
+
 ### :one: raw data
 ![raw](https://github.com/geophydog/ABC/blob/master/images/raw-sac.jpg)
+
+***
 
 ### :two: cut data
 ![cut](https://github.com/geophydog/ABC/blob/master/images/cut.jpg)
 
+***
+
 ### :three: band-pass filtering
 ![bp](https://github.com/geophydog/ABC/blob/master/images/bp.jpg)
+
+***
 
 ### :four: normalization in time domain
 ![norm](https://github.com/geophydog/ABC/blob/master/images/norm.png)
 
+***
+
 ### :five: spectral whitening
   - ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
   - ![whi_fft](https://github.com/geophydog/ABC/blob/master/images/whi_fft.png)
+  
+***
 
 ### :six: cross-correlation
 ![cor](https://github.com/geophydog/ABC/blob/master/images/cor.jpg)
@@ -53,6 +64,7 @@ abc_egf file.lst
 |  cut_npts | points number of cutting|
 |  cor_name | name of cross-correlation|
 |  lag_time | lag time of cross-correlation|
+
 ***
 
 ## Contribution
