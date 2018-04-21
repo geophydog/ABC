@@ -28,7 +28,9 @@
 ***
 
 ### :five: spectral whitening
-  - ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
+#### results in time domain  
+  - ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
+#### results in frequency domain
   - ![whi_fft](https://github.com/geophydog/ABC/blob/master/images/whi_fft.png)
   
 ***
