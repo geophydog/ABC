@@ -73,3 +73,9 @@ abc_egf file.lst
 ## Contribution
 - Author: Xuping Feng
 - Email: geophydogvon@gmail.com
+
+***
+
+## Reference
+- Bensen, G. D., et al. "Processing seismic ambient noise data to obtain reliable broad-band surface wave dispersion measurements."  -
+- Geophysical Journal International 169.3 (2007): 1239-1260.
