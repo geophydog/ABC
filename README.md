@@ -2,6 +2,10 @@
 
 ***
 
+# NOTICE!!! THIS PROGRAM COMES WITH NO WARRANTY, TO THE EXTEND PERMITED BY LAW!
+
+***
+
 ## ABC: AmBient noise and Coda
 - To extract empirical green's funcions(EGFs) from seismic ambient noise or coda with seismic interferomatry method.
 - Actually, it's to compute cross-correlation time functios of one station-pair.
