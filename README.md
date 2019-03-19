@@ -12,27 +12,27 @@
 
 ***
 
-### :one: raw data, here 86400 seconds long (one day) and sampling rate of 5 Hz
+### :one: Here is given raw data with 86400 seconds long (one day) and sampling rate of 5 Hz.
 ![raw](https://github.com/geophydog/ABC/blob/master/images/raw-sac.jpg)
 
 ***
 
-### :two: cut data from 10k senconds to 40k seconds
+### :two: Cut coda from 10k - 40k seconds after event time.
 ![cut](https://github.com/geophydog/ABC/blob/master/images/cut.jpg)
 
 ***
 
-### :three: band-pass filtering from 50 seconds to 50 seconds
+### :three: Execute band-pass filtering with period range of 15 - 50 seconds.
 ![bp](https://github.com/geophydog/ABC/blob/master/images/bp.jpg)
 
 ***
 
-### :four: normalization in time domain with run-absolute-mean method
+### :four: Temporal normalization with run-absolute-mean method
 ![norm](https://github.com/geophydog/ABC/blob/master/images/norm.png)
 
 ***
 
-### :five: spectral whitening with run-absolute-mean method
+### :five: Spectral whitening with run-absolute-mean method
 #### results in time domain  
   - ![whi](https://github.com/geophydog/ABC/blob/master/images/whi.jpg)
 #### results in frequency domain
@@ -40,7 +40,7 @@
   
 ***
 
-### :six: compute cross-correlation time function
+### :six: Compute cross-correlation time function
 ![cor](https://github.com/geophydog/ABC/blob/master/images/cor.jpg)
 
 ***
