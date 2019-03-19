@@ -24,7 +24,8 @@
  *      2017-09-10  Xuping Feng     Add new functions: cor, norm, normal, bp   *
  *                                                     pow_next2, whiten_f,    *
  *                                                     julian, cut_sac,        *
- *                                                     spe_whie, abs_time.     *
+ *                                                     spe_whie, abs_time,     * 
+ *                                                     cor_in_freq.            *
  *                                                                             *
  ******************************************************************************/
 
@@ -1066,4 +1067,128 @@ void spe_whi ( char *sacin, char *sacout, int npts, float f1, float f2, float f3
 
     write_sac( sacout, hd, data );
     free(data);
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ----------------- cross correlation in frequency domain ----------------------- */
+void cor_in_freq( char *sac1, char *sac2, float lag_time, char *cor_name ) {
+    int nfft, i, n, cor_n, lag_n, n1, n2;
+    float *cor_xy, *x, *y;
+    fftw_complex *in1, *in2, *out1, *out2, *cor_in, *cor_out;
+    fftw_plan p1, p2, p3;
+    SACHEAD hd1, hd2;
+
+    // Read in SAC data.
+    x = read_sac(sac1, &hd1);
+    y = read_sac(sac2, &hd2);
+    n1 = hd1.npts;
+    n2 = hd2.npts;
+
+    if( fabs(hd1.delta-hd2.delta) >= 1.0e-4 ) {
+        fprintf(stderr, "Temporal sampling interval are not same!\n");
+        exit(1);
+    }
+
+    // Get lag points.
+    lag_n = (int)(lag_time/hd1.delta);
+
+
+    // Find maximum n of n1 and n2.
+    n = n1 > n2 ? n1 : n2;
+
+    // Get number of data point to execute FFT.
+    nfft = pow_next2( n );
+
+
+    // Allocate dynamic memory of FFT.
+    in1 = (fftw_complex*) fftw_malloc( sizeof(fftw_complex) * nfft );
+    in2 = (fftw_complex*) fftw_malloc( sizeof(fftw_complex) * nfft );
+    out1 =  (fftw_complex*) fftw_malloc( sizeof(fftw_complex) * nfft );
+    out2 =  (fftw_complex*) fftw_malloc( sizeof(fftw_complex) * nfft );
+
+    // Allocate dynamic memory of cross correlation .
+    cor_in = (fftw_complex*) fftw_malloc( sizeof(fftw_complex) * nfft );
+    cor_out = (fftw_complex*) fftw_malloc( sizeof(fftw_complex) * nfft );
+
+    // Initialization of forward FFT.
+    for ( i = 0; i < nfft; i ++ ) {
+        if ( i < n1 )
+            in1[i][0] = x[i];
+        else
+            in1[i][0] = 0.;
+        if ( i < n2 )
+            in2[i][0]= y[i];
+        else
+            in2[i][0] = 0.;
+        in1[i][1] = 0.;
+        in2[i][1] = 0.;
+    }
+
+    // Create forward FFT plans of data "x" and "y".
+    p1 = fftw_plan_dft_1d( nfft, in1, out1, FFTW_FORWARD, FFTW_ESTIMATE);
+    p2 = fftw_plan_dft_1d( nfft, in2, out2, FFTW_FORWARD, FFTW_ESTIMATE);
+
+    // Execute FFT of data "x" and "y".
+    fftw_execute(p1);
+    fftw_execute(p2);
+
+    // Cross correlation in frequency domain.
+    for ( i = 0; i < nfft; i ++ ) {
+        // Real parts of cross correlation.
+        cor_in[i][0] = out1[i][0]*out2[i][0] + out1[i][1]*out2[i][1];
+
+        // Imaginary parts of cross correlation.
+        cor_in[i][1] = out1[i][1]*out2[i][0] - out1[i][0]*out2[i][1];
+    }
+
+    // Destroy FFT of data "x" and "y".
+    fftw_destroy_plan(p1);
+    fftw_destroy_plan(p2);
+
+    // Release dynamic memories of FFT of data "x" and "y".
+    fftw_free(in1); fftw_free(in2); fftw_free(out1); fftw_free(out2);
+
+    // Create backward FFT plan of cross correlation.
+    p3 = fftw_plan_dft_1d( nfft, cor_in, cor_out, FFTW_BACKWARD, FFTW_ESTIMATE);
+
+    // Execute backward FFT plan of cross correlation.
+    fftw_execute(p3);
+
+    // Check lag points.
+    if( lag_n > (int)(nfft/2) ) {
+        fprintf(stderr, "Lag time is too long!\n");
+        lag_n = (int)(nfft/2) - 1;
+    }
+
+    // Data points of cross-correlation.
+    cor_n = 2 * lag_n + 1;
+
+    // Allocate dynamic memory of cross correlation data.
+    cor_xy = ( float* ) malloc( sizeof(float) * cor_n );
+
+    // Get real parts after executing cross correlation in frequency domain.
+    // Center point of cross-correlation.
+    cor_xy[lag_n] = cor_out[0][0];
+
+    for ( i = 0; i < lag_n; i ++ ) {
+    // Positive part of cross-correlation.
+        cor_xy[lag_n+1+i] = cor_out[i+1][0];
+    // Negative part of cross-correlation.
+        cor_xy[i] = cor_out[nfft-1-lag_n+i][0];
+    }
+
+    //for ( i = 0; i < 50; i ++ )
+    //    printf("cor_out: %f cor_xy: %f\n", cor_out[i+1][0], cor_xy[lag_n+1+i]);
+
+    // Destroy backward FFT plan of cross correlation.
+    fftw_destroy_plan(p3);
+
+    // Release dynamic memories of cross correlation.
+    fftw_free(cor_in); fftw_free(cor_out);
+
+    hd1.npts = cor_n;
+    hd1.b = -(lag_n) * hd1.delta;
+    hd1.e = -hd1.b;
+    write_sac(cor_name, hd1, cor_xy);
+
 }
