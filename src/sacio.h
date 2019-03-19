@@ -391,4 +391,5 @@ void normal ( char *sacin, char *sacout, int npts  );
 void whiten_f ( char *sacin, char *sacout, int npts, float f1, float f2, float f3, float f4  );
 void spe_whi ( char *sacin, char *sacout, int npts, float f1, float f2, float f3, float f4  );
 void cor ( char *sac1, char *sac2, float lag_time, char *sac_cor );
+void cor_in_freq( char *sac1, char *sac2, float lag_time, char *cor_name );
 #endif /* sacio.h */
