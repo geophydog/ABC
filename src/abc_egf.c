@@ -48,7 +48,7 @@ int main( int argc, char *argv[] ) {
         normal( sacbp2, sacnorm2, npts );
         spe_whi ( sacnorm2, sacwhi2, 20, f1, f2, f3, f4 );
 
-        cor( sacwhi1, sacwhi2, lag_time, cor_name );
+        cor_in_freq( sacwhi1, sacwhi2, lag_time, cor_name );
         count += 1;
     }
     fclose(ff);
